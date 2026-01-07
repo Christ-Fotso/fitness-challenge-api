@@ -1,6 +1,7 @@
 import { Router, type Request, type Response } from 'express';
-import { ChallengeService } from '../../../dev_d/src/services';
-import { insertChallengeSchema } from '../../../dev_d/src/shared/schema';
+import { ChallengeService } from '../services';
+import { insertChallengeSchema } from '../shared/schema';
+
 
 export class ChallengeController {
     constructor(private readonly challengeService: ChallengeService) { }

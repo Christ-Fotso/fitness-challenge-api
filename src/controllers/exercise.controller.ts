@@ -1,6 +1,7 @@
 import { Router, type Request, type Response } from 'express';
-import { ExerciseService } from '../../../dev_d/src/services';
-import { insertExerciseSchema } from '../../../dev_d/src/shared/schema';
+import { ExerciseService } from '../services';
+import { insertExerciseSchema } from '../shared/schema';
+
 
 export class ExerciseController {
     constructor(private readonly exerciseService: ExerciseService) { }
