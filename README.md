@@ -17,15 +17,25 @@
 
 API REST complète pour une plateforme de gestion de salles de sport avec système de défis, badges et gamification.
 
-### Technologies Utilisées
+### Choix Techniques et Architecture
 
-- **Runtime**: Node.js 20+ avec TypeScript
-- **Framework**: Express.js
-- **Base de données**: PostgreSQL (Neon)
-- **ORM**: Drizzle ORM
-- **Validation**: Zod
-- **Authentification**: JWT + bcrypt
-- **Tests**: Jest + Supertest
+#### Pourquoi ce stack ?
+
+1.  **Framework : Express.js**
+    *   **Pourquoi ?** Choisi pour sa légèreté, sa flexibilité et sa position de standard industriel dans l'écosystème Node.js. Il permet une mise en place rapide des routes tout en restant non-opiniâtre.
+
+2.  **ORM : Drizzle ORM**
+    *   **Pourquoi ?** Préféré aux alternatives (comme Prisma ou TypeORM) pour sa **performance**, sa **légèreté** et son approche "If you know SQL, you know Drizzle". Il offre une excellente sécurité de typage avec TypeScript sans la lourdeur d'un ORM classique.
+
+3.  **Authentification : JWT (JSON Web Tokens)**
+    *   **Pourquoi ?** Une solution **stateless** idéale pour une API REST. Elle permet une scalabilité facile et sécurise les échanges sans nécessiter de stockage de session côté serveur.
+
+4.  **Base de données : PostgreSQL**
+    *   **Pourquoi ?** La base de données relationnelle open-source la plus avancée, garantissant l'intégrité des données et la fiabilité.
+
+5.  **Conteneurisation : Docker**
+    *   **Statut :** ✅ **OUI, entièrement conteneurisé.**
+    *   Le projet inclut un `Dockerfile` et un `docker-compose.yml` pour un déploiement et un développement iso-prod immédiat (Base de données + API).
 
 ---
 
@@ -458,11 +468,12 @@ GET    /api/users/:id/points               - Points d'un utilisateur
 
 C'est la méthode la plus simple et la plus rapide !
 
-#### 1. Cloner le Projet
+#### 1. Récupérer le projet
+
+Décompressez l'archive fournie.
 
 ```bash
-git clone <votre-repo>
-cd dev_a
+cd fitness-challenge-api
 ```
 
 #### 2. Configurer les Variables d'Environnement
@@ -748,10 +759,18 @@ npm test -- --coverage
 
 ## 📚 API Documentation
 
-### Base URL
-```
-http://localhost:5000/api
-```
+### Accès et Documentation
+
+*   **Swagger / OpenAPI** : ❌ Non disponible (Pas de Swagger, comme spécifié).
+*   **Postman Collection** : ✅ **[Accéder à la collection Postman](https://api.postman.com/collections/42877848-6c383402-1a5e-4b4e-8b1a-af52c82ae3f0?access_key=PMAT-01KEQK3YV76B70GEJZ9EF41W8V)**
+    *   *Note : Cette collection contient l'ensemble des 51 routes fonctionnelles, testées et organisées.*
+*   **Code** : Le projet inclut le code **Backend** (API) et **Frontend** (Bonus).
+
+### URLs
+
+*   **URL Frontend (Bonus) 🌟** : [https://fitness-challenge.pulseverse.shop/](https://fitness-challenge.pulseverse.shop/)
+*   **URL API Locale** : `http://localhost:5000/api`
+*   **URL API Distante (Production)** : `[URL À COMPLÉTER]` (Ex: https://fitness-challenge-api.onrender.com/api)
 
 ### Authentification
 
